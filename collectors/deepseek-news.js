@@ -16,12 +16,14 @@ function collect(source) {
     var path = m[1];
     var text = m[2].replace(/^\s+|\s+$/g, "");
     if (seen[path]) continue;
-    seen[path] = true;
+    // 侧边栏条目形如 "标题 YYYY/MM/DD";语言切换等无日期链接直接跳过
     var dm = text.match(/^(.*)\s+(\d{4})\/(\d{2})\/(\d{2})$/);
+    if (!dm) continue;
+    seen[path] = true;
     rows.push({
       path: path,
-      title: dm ? dm[1].replace(/^\s+|\s+$/g, "") : text,
-      published: dm ? dm[2] + "-" + dm[3] + "-" + dm[4] + "T00:00:00Z" : "",
+      title: dm[1].replace(/^\s+|\s+$/g, ""),
+      published: dm[2] + "-" + dm[3] + "-" + dm[4] + "T00:00:00Z",
     });
   }
   var items = [];
