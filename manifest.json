@@ -7,10 +7,16 @@
       "description": "Top stories(官方 API),按热度取前 N 条",
       "url": "collectors/hackernews.js",
       "source_url": "https://news.ycombinator.com",
-      "tags": ["tech", "news"],
+      "tags": [
+        "tech",
+        "news"
+      ],
       "script_version": 1,
       "config_schema": {
-        "limit": { "type": "number", "default": 20 }
+        "limit": {
+          "type": "number",
+          "default": 20
+        }
       }
     },
     {
@@ -19,10 +25,35 @@
       "description": "DeepSeek API 官方新闻/模型发布日志",
       "url": "collectors/deepseek-news.js",
       "source_url": "https://api-docs.deepseek.com/news/news260910",
-      "tags": ["ai", "official"],
+      "tags": [
+        "ai",
+        "official"
+      ],
       "script_version": 1,
       "config_schema": {
-        "limit": { "type": "number", "default": 10 }
+        "limit": {
+          "type": "number",
+          "default": 10
+        }
+      }
+    },
+    {
+      "name": "mimo-news",
+      "title": "小米 MiMo 新闻",
+      "description": "Xiaomi MiMo 大模型官方新闻/发布日志",
+      "url": "collectors/mimo-news.js",
+      "source_url": "https://mimo.mi.com/docs/zh-CN/news/latest/v2-6",
+      "tags": [
+        "ai",
+        "official",
+        "cn"
+      ],
+      "script_version": 1,
+      "config_schema": {
+        "limit": {
+          "type": "number",
+          "default": 10
+        }
       }
     }
   ]
