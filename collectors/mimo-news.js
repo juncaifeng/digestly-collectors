@@ -1,6 +1,16 @@
 // 小米 MiMo 官方新闻(mimo.mi.com/docs 侧边栏即完整新闻列表)
 // 页面无发布日期,published 留空(按抓取顺序排列)
 // 配置: limit (number, 默认 10) — 抓取最新条数
+// 解码常见 HTML 实体(源站标题含 &amp; 等)
+function decodeEntities(t) {
+  return t
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&#0?39;|&apos;/g, "'")
+    .replace(/&#(\d+);/g, function (_, n) { return String.fromCharCode(parseInt(n, 10)); });
+}
 function collect(source) {
   var limit = 10;
   if (source.config && source.config.limit) {
@@ -16,7 +26,7 @@ function collect(source) {
   var m;
   while ((m = re.exec(html)) !== null) {
     var path = m[1];
-    var title = m[2].replace(/^\s+|\s+$/g, "");
+    var title = decodeEntities(m[2].replace(/^\s+|\s+$/g, ""));
     if (seen[path] || !title) continue;
     seen[path] = true;
     rows.push({ path: path, title: title });
