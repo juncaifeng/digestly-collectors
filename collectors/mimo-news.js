@@ -7,6 +7,7 @@ function collect(source) {
     limit = parseInt(source.config.limit, 10) || 10;
   }
   var base = "https://mimo.mi.com";
+  var now = Date.now();
   // 任一 news 页的侧边栏都列出全部新闻: <a href="/docs/zh-CN/news/latest/<slug>"><span>标题</span></a>
   var html = http.get(base + "/docs/zh-CN/news/latest/v2-6");
   var re = /href="(\/docs\/zh-CN\/news\/latest\/[a-zA-Z0-9.\-]+)"[^>]*><span[^>]*>([^<]+)<\/span>/g;
@@ -39,7 +40,8 @@ function collect(source) {
       link: base + r.path,
       author: "Xiaomi MiMo",
       content: content,
-      published: "",
+      // 源站无日期: 按列表顺序合成递减时间,保证"最新在前"的排序正确
+      published: new Date(now - i * 60000).toISOString(),
     });
   }
   return items;

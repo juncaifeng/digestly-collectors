@@ -48,7 +48,7 @@
         "official",
         "cn"
       ],
-      "script_version": 1,
+      "script_version": 2,
       "config_schema": {
         "limit": {
           "type": "number",
