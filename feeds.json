@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "description": "digestly 订阅源市场:第三方市场源清单。填写本仓库地址即可解析出下列订阅源。feed_url 可为任意 RSS/Atom 地址,也兼容 RSSHub 网关地址(https://<你的 rsshub 实例>/<路由>)。",
+  "feeds": [
+    {
+      "name": "hackernews",
+      "title": "Hacker News 头条",
+      "description": "HN 首页精选(hnrss)",
+      "feed_url": "https://hnrss.org/frontpage",
+      "site_url": "https://news.ycombinator.com",
+      "tags": ["技术", "社区"]
+    },
+    {
+      "name": "arstechnica",
+      "title": "Ars Technica",
+      "description": "科技新闻与深度报道",
+      "feed_url": "https://feeds.arstechnica.com/arstechnica/index",
+      "site_url": "https://arstechnica.com",
+      "tags": ["技术", "新闻"]
+    }
+  ]
+}
