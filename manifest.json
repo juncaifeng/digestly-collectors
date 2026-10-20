@@ -55,6 +55,44 @@
           "default": 10
         }
       }
+    },
+    {
+      "name": "anthropic-news",
+      "title": "Anthropic 新闻",
+      "description": "Anthropic 官方新闻与公告(anthropic.com/news)",
+      "url": "collectors/anthropic-news.js",
+      "source_url": "https://www.anthropic.com/news",
+      "tags": [
+        "AI",
+        "官方",
+        "英文"
+      ],
+      "script_version": 1,
+      "config_schema": {
+        "limit": {
+          "type": "number",
+          "default": 10
+        }
+      }
+    },
+    {
+      "name": "kimi-news",
+      "title": "Kimi 新闻",
+      "description": "月之暗面 Kimi 官方新闻(kimi.com/news)",
+      "url": "collectors/kimi-news.js",
+      "source_url": "https://www.kimi.com/news/",
+      "tags": [
+        "AI",
+        "官方",
+        "中文"
+      ],
+      "script_version": 1,
+      "config_schema": {
+        "limit": {
+          "type": "number",
+          "default": 10
+        }
+      }
     }
   ]
 }
